@@ -3,6 +3,9 @@ from django.contrib.auth.models import User
 
 class Category(models.Model):
     name = models.CharField(max_length = 65)
+    # função __str__ é utilizada para retornar o nome da categoria ao invés de "Category object (1)"
+    def __str__(self):
+        return self.name
 
 class Recipe(models.Model):
     title = models.CharField(max_length = 65)
@@ -39,5 +42,7 @@ class Recipe(models.Model):
     
     # se caso tivessemos um models.DO_NOTHING, ao deletar um usuário, os registros de receitas associados a ele não seriam afetados
     
+    def __str__(self):
+        return self.title
 
 # Create your models here.
